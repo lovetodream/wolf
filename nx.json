@@ -27,6 +27,9 @@
     ]
   },
   "projects": {
+    "api-interfaces": {
+      "tags": []
+    },
     "api": {
       "tags": []
     }
