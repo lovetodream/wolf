@@ -5,15 +5,17 @@ import { Project, ProjectDocument } from '../schemas/project.schema';
 
 @Injectable()
 export class ProjectService {
-  constructor(@InjectModel(Project.name) private projectModel: Model<ProjectDocument>) {}
+  constructor(
+    @InjectModel(Project.name) private projectModel: Model<ProjectDocument>
+  ) {}
 
   async findAll(): Promise<ProjectDocument[]> {
-    return this.projectModel.find()
+    return this.projectModel.find();
   }
 
   async create(): Promise<ProjectDocument> {
-    const project = new Project()
+    const project = new Project();
     project.name = 'test';
-    return this.projectModel.create(project)
+    return this.projectModel.create(project);
   }
 }

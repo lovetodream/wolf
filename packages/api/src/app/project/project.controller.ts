@@ -8,11 +8,11 @@ export class ProjectController {
 
   @Get()
   findAll(): Promise<ProjectDocument[]> {
-    return this.projectService.findAll()
+    return this.projectService.findAll();
   }
 
   @Post()
   create(): Promise<ProjectDocument> {
-    return this.projectService.create()
+    return this.projectService.create();
   }
 }

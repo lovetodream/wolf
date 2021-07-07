@@ -1,6 +1,10 @@
 import { MongooseModule } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
-import { Project, ProjectDocument, ProjectSchema } from '../schemas/project.schema';
+import {
+  Project,
+  ProjectDocument,
+  ProjectSchema,
+} from '../schemas/project.schema';
 import { rootMongooseTestModule } from '../test.utils';
 import { ProjectController } from './project.controller';
 import { ProjectService } from './project.service';
@@ -13,7 +17,9 @@ describe('ProjectController', () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [
         rootMongooseTestModule(),
-        MongooseModule.forFeature([{ name: Project.name, schema: ProjectSchema }])
+        MongooseModule.forFeature([
+          { name: Project.name, schema: ProjectSchema },
+        ]),
       ],
       controllers: [ProjectController],
       providers: [ProjectService],

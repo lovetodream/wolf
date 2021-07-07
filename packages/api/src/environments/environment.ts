@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  mongodb: 'mongodb://root:example@localhost:27017'
+  mongodb: 'mongodb://root:example@localhost:27017',
 };

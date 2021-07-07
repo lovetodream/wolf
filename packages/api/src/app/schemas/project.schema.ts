@@ -13,4 +13,4 @@ export class Project {
   name: string;
 }
 
-export const ProjectSchema = SchemaFactory.createForClass(Project)
+export const ProjectSchema = SchemaFactory.createForClass(Project);

@@ -11,9 +11,9 @@ import { ProjectModule } from './project/project.module';
   imports: [
     ConfigModule.forRoot(),
     MongooseModule.forRoot(environment.mongodb, {
-      dbName: 'wolf'
+      dbName: 'wolf',
     }),
-    ProjectModule
+    ProjectModule,
   ],
   controllers: [AppController],
   providers: [AppService],
