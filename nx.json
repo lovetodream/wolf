@@ -27,11 +27,18 @@
     ]
   },
   "projects": {
+    "api": {
+      "tags": []
+    },
     "api-interfaces": {
       "tags": []
     },
-    "api": {
+    "frontend": {
       "tags": []
+    },
+    "frontend-e2e": {
+      "tags": [],
+      "implicitDependencies": ["frontend"]
     }
   },
   "workspaceLayout": {
