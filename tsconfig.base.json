@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@timozacherl/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@timozacherl/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@wolf/ui": ["packages/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
