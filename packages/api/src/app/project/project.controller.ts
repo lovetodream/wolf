@@ -1,5 +1,5 @@
 import { Controller, Get, Post } from '@nestjs/common';
-import { ProjectDocument } from '../schemas/project.schema';
+import { ProjectDocument } from '@wolf/schemas';
 import { ProjectService } from './project.service';
 
 @Controller('project')

@@ -1,10 +1,6 @@
 import { MongooseModule } from '@nestjs/mongoose';
 import { Test, TestingModule } from '@nestjs/testing';
-import {
-  Project,
-  ProjectDocument,
-  ProjectSchema,
-} from '../schemas/project.schema';
+import { Project, ProjectDocument, ProjectSchema } from '@wolf/schemas';
 import { rootMongooseTestModule } from '../test.utils';
 import { ProjectController } from './project.controller';
 import { ProjectService } from './project.service';

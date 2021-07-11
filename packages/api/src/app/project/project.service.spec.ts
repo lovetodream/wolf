@@ -5,7 +5,7 @@ import {
   rootMongooseTestModule,
 } from '../test.utils';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Project, ProjectSchema } from '../schemas/project.schema';
+import { Project, ProjectSchema } from '@wolf/schemas';
 
 describe('ProjectService', () => {
   let service: ProjectService;

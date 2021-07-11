@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Project, ProjectSchema } from '../schemas/project.schema';
+import { Project, ProjectSchema } from '@wolf/schemas';
 import { ProjectService } from './project.service';
 import { ProjectController } from './project.controller';
 

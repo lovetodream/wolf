@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@timozacherl/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@wolf/schemas": ["packages/schemas/src/index.ts"],
       "@wolf/ui": ["packages/ui/src/index.ts"]
     }
   },
