@@ -13,6 +13,10 @@ export class ProjectService {
     return this.projectModel.find();
   }
 
+  async findOne(id: string): Promise<ProjectDocument> {
+    return this.projectModel.findById(id);
+  }
+
   async create(): Promise<ProjectDocument> {
     const project = new Project();
     project.name = 'test';
