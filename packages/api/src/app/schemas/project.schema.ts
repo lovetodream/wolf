@@ -1,16 +1,16 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
-import { v4 } from 'uuid';
+import { Document, Schema as MongooseSchema } from 'mongoose';
+import { App } from './app.schema';
 
 export type ProjectDocument = Project & Document;
 
 @Schema({ timestamps: true })
 export class Project {
-  @Prop({ unique: true, default: () => v4() })
-  id: string;
-
   @Prop()
   name: string;
+
+  @Prop({ type: [{ type: MongooseSchema.Types.ObjectId, ref: 'App' }] })
+  app: App[];
 }
 
 export const ProjectSchema = SchemaFactory.createForClass(Project);
