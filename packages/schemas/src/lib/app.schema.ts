@@ -21,6 +21,9 @@ const appTypeValues = Object.values(AppType);
 @Schema({ timestamps: true })
 @ObjectType()
 export class App {
+  @Field(() => String)
+  _id: MongooseSchema.Types.ObjectId;
+
   @Prop({ enum: appTypeValues, required: true })
   @Field(() => AppType)
   type: AppType;
@@ -28,6 +31,12 @@ export class App {
   @Prop({ type: [{ type: MongooseSchema.Types.ObjectId, ref: 'Project' }] })
   @Field(() => Project)
   project: Project;
+
+  @Field(() => Date)
+  createdAt: Date;
+
+  @Field(() => Date)
+  updatedAt: Date;
 }
 
 export const AppSchema = SchemaFactory.createForClass(App);
