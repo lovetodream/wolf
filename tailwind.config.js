@@ -14,7 +14,9 @@ module.exports = {
       extend: {},
     },
     variants: {
-      extend: {},
+      extend: {
+        padding: ['hover', 'group-hover']
+      },
     },
     plugins: [require('@tailwindcss/aspect-ratio'),require('@tailwindcss/typography'),require('@tailwindcss/forms')],
 };

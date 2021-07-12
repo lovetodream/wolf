@@ -1,0 +1,33 @@
+<wolf-modal #modal>
+  <div class="border-b pb-2 mb-4">
+    <h2 class="text-2xl">Create new project</h2>
+  </div>
+
+  <form [formGroup]="createForm">
+    <div>
+      <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+      <input formControlName="name" id="name" name="name" type="text" class="focus:ring-blue-500 focus:border-blue-500 block w-full px-4 sm:text-sm border-gray-300 rounded-md shadow-sm" placeholder="Project-1" />
+    </div>
+  </form>
+
+  <ng-container *ngTemplateOutlet="toolbar"></ng-container>
+</wolf-modal>
+
+<ng-template #toolbar>
+  <div class="py-3 flex justify-end">
+    <button
+      (click)="close()"
+      type="button"
+      class="rounded-md shadow sm:tracking-wider mx-2 border border-gray-300 px-4 py-2 bg-white text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm transition-colors hover:shadow-lg"
+    >
+      Close
+    </button>
+    <button
+      (click)="create()"
+      type="button"
+      class="rounded-md shadow sm:tracking-wider ml-2 border border-blue-600 px-4 py-2 bg-blue-500 text-white hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm transition-colors hover:shadow-lg top-1"
+    >
+      Create Project
+    </button>
+  </div>
+</ng-template>

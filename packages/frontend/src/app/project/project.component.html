@@ -1,0 +1,41 @@
+<nav class="bg-gray-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      <div class="flex items-center">
+        <div class="flex-shrink-0">
+          <img class="h-8 w-8" src="/assets/img/logo-placeholder.png" alt="">
+        </div>
+        <div class="hidden md:block">
+          <div class="ml-10 flex items-baseline space-x-4">
+            <!-- navbar items -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section>
+    <div class="container mx-auto max-w-7xl px-8">
+      <h1 class="text-2xl pt-8 pb-4">My Projects</h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <button (click)="createProject()" class="col-span-1 text-center shadow rounded-md bg-blue-100 text-blue-900 hover:bg-blue-200 flex justify-center flex-col px-8 transition-colors h-48">
+          <fa-icon class="text-2xl block mb-2" [icon]="faPlus"></fa-icon>
+          <h3>Add new project</h3>
+        </button>
+
+        <ng-container *ngFor="let project of (projects$ | async)">
+          <button class="group col-span-1 shadow rounded-md hover:bg-gray-200 px-8 py-4 transition-colors h-48 text-left flex flex-col">
+            <h2 class="text-2xl flex items-center">
+              {{ project.name }} <fa-icon class="text-base pl-2 pt-1 group-hover:pl-3 transition-all" [icon]="faChevronRight"></fa-icon>
+            </h2>
+            <p class="text-sm text-gray-500 overflow-ellipsis overflow-x-hidden">
+              {{ project._id }}
+            </p>
+          </button>
+        </ng-container>
+      </div>
+    </div>
+  </section>
+</main>
