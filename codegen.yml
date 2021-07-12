@@ -1,0 +1,16 @@
+overwrite: true
+schema: "http://localhost:3333/graphql"
+documents:
+  - "packages/frontend/src/**/*.graphql"
+  - "packages/frontend/src/**/.graphql"
+generates:
+  packages/frontend/src/generated/graphql.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-resolvers"
+      - "typescript-apollo-angular"
+      - "typescript-mongodb"
+  ./graphql.schema.json:
+    plugins:
+      - "introspection"
