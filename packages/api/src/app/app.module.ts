@@ -7,6 +7,7 @@ import { environment } from '../environments/environment';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ProjectModule } from './project/project.module';
+import { AppModule as ProjectAppModule } from './app/app.module';
 
 @Module({
   imports: [
@@ -14,8 +15,12 @@ import { ProjectModule } from './project/project.module';
     MongooseModule.forRoot(environment.mongodb, {
       dbName: 'wolf',
     }),
-    GraphQLModule.forRoot({ autoSchemaFile: true }),
+    GraphQLModule.forRoot({
+      autoSchemaFile: true,
+      installSubscriptionHandlers: true,
+    }),
     ProjectModule,
+    ProjectAppModule,
   ],
   controllers: [AppController],
   providers: [AppService],
