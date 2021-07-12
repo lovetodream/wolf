@@ -1,5 +1,7 @@
-import { Args, Query, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { Project } from '@wolf/schemas';
+
+import { CreateProjectDto } from './dto/create-project.dto';
 import { ProjectService } from './project.service';
 
 @Resolver(() => Project)
@@ -11,5 +13,15 @@ export class ProjectResolver {
     @Args('id', { type: () => String }) id: string
   ): Promise<Project> {
     return this.projectService.findOne(id);
+  }
+
+  @Query(() => [Project])
+  async projects(): Promise<Project[]> {
+    return this.projectService.findAll();
+  }
+
+  @Mutation(() => Project)
+  async createProject(@Args() args: CreateProjectDto): Promise<Project> {
+    return this.projectService.create(args);
   }
 }

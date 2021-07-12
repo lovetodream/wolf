@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { Project, ProjectDocument } from '@wolf/schemas';
+import { CreateProjectDto } from './dto/create-project.dto';
 
 @Injectable()
 export class ProjectService {
@@ -17,9 +18,9 @@ export class ProjectService {
     return this.projectModel.findById(id);
   }
 
-  async create(): Promise<ProjectDocument> {
+  async create(dto: CreateProjectDto): Promise<ProjectDocument> {
     const project = new Project();
-    project.name = 'test';
+    project.name = dto.name;
     return this.projectModel.create(project);
   }
 }
