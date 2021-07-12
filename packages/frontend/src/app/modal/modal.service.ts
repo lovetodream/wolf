@@ -30,7 +30,7 @@ export class ModalService<T> {
       .create(this.injector);
     this.appRef.attachView(this.componentRef.hostView);
 
-    const domEl = (this.componentRef.hostView as EmbeddedViewRef<any>)
+    const domEl = (this.componentRef.hostView as EmbeddedViewRef<unknown>)
       .rootNodes[0] as HTMLElement;
     document.body.appendChild(domEl);
   }
