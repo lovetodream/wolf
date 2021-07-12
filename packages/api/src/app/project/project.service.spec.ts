@@ -6,6 +6,7 @@ import {
 } from '../test.utils';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Project, ProjectSchema } from '@wolf/schemas';
+import { CreateProjectDto } from './dto/create-project.dto';
 
 describe('ProjectService', () => {
   let service: ProjectService;
@@ -39,8 +40,11 @@ describe('ProjectService', () => {
     });
 
     it('should return a list with two projects', async () => {
-      await service.create();
-      await service.create();
+      const dto = new CreateProjectDto();
+      dto.name = 'May the force be with you';
+
+      await service.create(dto);
+      await service.create(dto);
       const projects = await service.findAll();
       expect(projects).toHaveLength(2);
     });
