@@ -1,1 +1,155 @@
-<p>dashboard works!</p>
+<div class="grid grid-cols-4">
+
+  <nav class="p-6 col-span-1 flex flex-col justify-between min-h-screen">
+    <ul>
+      <li>
+        <div class="flex justify-between px-4">
+          <p class="text-xl font-light uppercase text-gray-500">Overview</p>
+        </div>
+        <a [routerLink]="['/dashboard', projectId]" class="py-2 px-4 my-2 block rounded text-lg" routerLinkActive="bg-blue-100 text-blue-900" [routerLinkActiveOptions]="{ exact: true }">Dashboard</a>
+      </li>
+      <li>
+        <div class="flex justify-between px-4">
+          <p class="text-xl font-light uppercase text-gray-500">Metrics</p>
+          <fa-icon [icon]="faPlus"></fa-icon>
+        </div>
+        <a [routerLink]="['metrics', 'versions']" class="py-2 px-4 my-2 block rounded text-lg" routerLinkActive="bg-blue-100 text-blue-900">App Versions</a>
+        <a [routerLink]="['metrics', 'versions']" class="py-2 px-4 my-2 block rounded text-lg" routerLinkActive="bg-blue-100 text-blue-900">OS Versions</a>
+        <a [routerLink]="['metrics', 'versions']" class="py-2 px-4 my-2 block rounded text-lg" routerLinkActive="bg-blue-100 text-blue-900">Devices</a>
+      </li>
+      <li>
+        <div class="flex justify-between px-4">
+          <p class="text-xl font-light uppercase text-gray-500">Feature Flags</p>
+          <fa-icon [icon]="faPlus"></fa-icon>
+        </div>
+      </li>
+      <div class="flex justify-between px-4">
+        <p class="text-xl font-light uppercase text-gray-500">Localization</p>
+        <fa-icon [icon]="faPlus"></fa-icon>
+      </div>
+    </ul>
+
+    <div>
+      <div class="relative inline-block">
+        <div
+          class="origin-center absolute left-full transform top-1/2 -translate-y-1/2 w-36 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+          role="tooltip"
+          aria-orientation="vertical"
+          aria-labelledby="show-bug-tooltip"
+          *ngIf="showBugHint"
+          @tooltip
+        >
+          <div class="py-1" role="none">
+            <span class="block px-4 py-2 text-sm text-gray-700"
+              ><i class="fa-regular fa-info-circle"></i> Report a bug</span
+            >
+          </div>
+        </div>
+        <a (mouseover)="showBugHint = true" (mouseout)="showBugHint = false" href="https://github.com/lovetodream/wolf/issues/new?assignees=&labels=&template=bug_report.md&title=" class="p-2 text-xl hover:bg-gray-100 rounded">
+          <fa-icon [icon]="faBug"></fa-icon>
+        </a>
+      </div>
+      <div class="relative inline-block">
+        <div
+          class="origin-center absolute left-full transform top-1/2 -translate-y-1/2 w-44 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+          role="tooltip"
+          aria-orientation="vertical"
+          aria-labelledby="show-bug-tooltip"
+          *ngIf="showFeatureHint"
+          @tooltip
+        >
+          <div class="py-1" role="none">
+            <span class="block px-4 py-2 text-sm text-gray-700"
+              ><i class="fa-regular fa-info-circle"></i> Request a feature</span
+            >
+          </div>
+        </div>
+        <a (mouseover)="showFeatureHint = true" (mouseout)="showFeatureHint = false" href="https://github.com/lovetodream/wolf/issues/new?assignees=&labels=&template=feature_request.md&title=" class="p-2 text-xl hover:bg-gray-100 rounded">
+          <fa-icon [icon]="faLightbulbOn"></fa-icon>
+        </a>
+      </div>
+      <a href="https://github.com/lovetodream/wolf" target="_blank" class="p-2 text-xl hover:bg-gray-100 rounded">
+        <fa-icon [icon]="faGithub"></fa-icon>
+      </a>
+    </div>
+  </nav>
+
+  <main class="bg-gray-100 border-l border-gray-300 col-span-3 p-6">
+    <h1 class="text-2xl font-medium mb-6">Welcome back</h1>
+    <div class="grid">
+      <div class="bg-white rounded-2xl p-6 border border-gray-300">
+        <h2 class="text-xl mb-2 font-semibold">Add your first app</h2>
+        <p class="mb-3">To get started add an application to your project.</p>
+        <div class="inline-block relative">
+          <div
+            class="origin-center absolute left-full transform top-1/2 -translate-y-1/2 w-max rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+            role="tooltip"
+            aria-orientation="vertical"
+            aria-labelledby="show-bug-tooltip"
+            *ngIf="showSwiftHint"
+            @tooltip
+          >
+            <div class="py-1" role="none">
+              <span class="block px-4 py-2 text-sm text-gray-700"
+                >Swift App for Apple Platforms</span
+              >
+            </div>
+          </div>
+          <button (mouseover)="showSwiftHint = true" (mouseleave)="showSwiftHint = false" (click)="addApp()" class="text-2xl p-2 mr-2 border rounded-full w-12 h-12 hover:bg-gray-100 shadow hover:shadow-sm"><fa-icon [icon]="faApple"></fa-icon></button>
+        </div>
+        <div class="inline-block relative">
+          <div
+            class="origin-center absolute left-full transform top-1/2 -translate-y-1/2 w-max rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+            role="tooltip"
+            aria-orientation="vertical"
+            aria-labelledby="show-bug-tooltip"
+            *ngIf="showAndroidHint"
+            @tooltip
+          >
+            <div class="py-1" role="none">
+              <span class="block px-4 py-2 text-sm text-gray-700"
+                >Kotlin App for Android</span
+              >
+            </div>
+          </div>
+          <button (mouseover)="showAndroidHint = true" (mouseleave)="showAndroidHint = false" (click)="addApp()" class="text-2xl p-2 mr-2 border rounded-full w-12 h-12 hover:bg-gray-100 shadow hover:shadow-sm"><fa-icon [icon]="faAndroid"></fa-icon></button>
+        </div>
+        <div class="inline-block relative">
+          <div
+            class="origin-center absolute left-full transform top-1/2 -translate-y-1/2 w-max rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+            role="tooltip"
+            aria-orientation="vertical"
+            aria-labelledby="show-bug-tooltip"
+            *ngIf="showJsHint"
+            @tooltip
+          >
+            <div class="py-1" role="none">
+              <span class="block px-4 py-2 text-sm text-gray-700"
+                >Java-/Typescript App for eg. Web</span
+              >
+            </div>
+          </div>
+          <button (mouseover)="showJsHint = true" (mouseleave)="showJsHint = false" (click)="addApp()" class="text-2xl p-2 mr-2 border rounded-full w-12 h-12 hover:bg-gray-100 shadow hover:shadow-sm"><fa-icon [icon]="faJs"></fa-icon></button>
+        </div>
+        <div class="inline-block relative">
+          <div
+            class="origin-center absolute left-full transform top-1/2 -translate-y-1/2 w-max rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+            role="tooltip"
+            aria-orientation="vertical"
+            aria-labelledby="show-bug-tooltip"
+            *ngIf="showOtherHint"
+            @tooltip
+          >
+            <div class="py-1" role="none">
+              <span class="block px-4 py-2 text-sm text-gray-700"
+                >Anything else</span
+              >
+            </div>
+          </div>
+          <button (mouseover)="showOtherHint = true" (mouseleave)="showOtherHint = false" (click)="addApp()" class="text-2xl p-2 mr-2 border rounded-full w-12 h-12 hover:bg-gray-100 shadow hover:shadow-sm"><fa-icon [icon]="faCode"></fa-icon></button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</div>

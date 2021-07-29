@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -34,6 +35,7 @@ import { ModalModule } from './modal/modal.module';
     HttpClientModule,
     GraphqlModule,
     FontAwesomeModule,
+    BrowserAnimationsModule,
     ModalModule,
   ],
   providers: [],

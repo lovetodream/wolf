@@ -26,14 +26,14 @@
         </button>
 
         <ng-container *ngFor="let project of (projects$ | async)">
-          <button class="group col-span-1 shadow rounded-md hover:bg-gray-200 px-8 py-4 transition-colors h-48 text-left flex flex-col">
+          <a [routerLink]="['/', 'dashboard', project._id]" class="group col-span-1 shadow rounded-md hover:bg-gray-200 px-8 py-4 transition-colors h-48 text-left flex flex-col">
             <h2 class="text-2xl flex items-center">
               {{ project.name }} <fa-icon class="text-base pl-2 pt-1 group-hover:pl-3 transition-all" [icon]="faChevronRight"></fa-icon>
             </h2>
             <p class="text-sm text-gray-500 overflow-ellipsis overflow-x-hidden">
               {{ project._id }}
             </p>
-          </button>
+          </a>
         </ng-container>
       </div>
     </div>
