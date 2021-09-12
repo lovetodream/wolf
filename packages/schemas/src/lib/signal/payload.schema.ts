@@ -1,11 +1,11 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { Prop, Schema } from '@nestjs/mongoose';
-import { AppType } from '../app.schema';
+import { AppType, appTypeValues } from '../app.schema';
 
 @Schema({ strict: false })
 @ObjectType()
 export class Payload {
-  @Prop()
+  @Prop({ type: AppType, enum: appTypeValues, required: false })
   @Field(() => AppType, { nullable: true })
   platform?: AppType;
 

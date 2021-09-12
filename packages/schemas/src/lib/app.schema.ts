@@ -16,7 +16,7 @@ registerEnumType(AppType, {
   name: 'AppType',
 });
 
-const appTypeValues = Object.values(AppType);
+export const appTypeValues = Object.values(AppType);
 
 @Schema({ timestamps: true })
 @ObjectType()
