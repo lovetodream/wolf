@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  mongodb: 'mongodb://root:example@localhost:27017',
+  mongodb: process.env.MONGODB ?? 'mongodb://root:example@localhost:27017',
 };
